@@ -1,4 +1,4 @@
-const CACHE='engapp-cloud-v18';
+const CACHE='engapp-cloud-v19';
 const ASSETS=['./2-app.js','./3-app.css','./','./index.html','./9-cloud-v3.js','./6-cloud-v2.css','./1-1-20-cloud-v14.js','./2-2-20-cloud-v14.css','./1-20-cloud-v15.js','./2-20-cloud-v15.css','./1-21-cloud-v16.js','./2-22-cloud-v16.css','./1-cloud-v17.js','./2-cloud-v17.css','./1-cloud-v19.js','./3-privacy.html','./6-icon-192.png','./7-icon-512.png','./5-manifest.webmanifest','./8-noto-hebrew-400.woff2','./9-noto-hebrew-700.woff2','./10-noto-latin-400.woff2','./11-noto-latin-700.woff2'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('engapp-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
